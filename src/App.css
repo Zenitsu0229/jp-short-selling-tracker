@@ -1,0 +1,587 @@
+/* ────────────────────────────────────────────
+   レイアウト
+──────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #07090f;
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif;
+}
+
+/* ────────────────────────────────────────────
+   ヘッダー
+──────────────────────────────────────────── */
+.app-header {
+  background: #0a0d16;
+  border-bottom: 1px solid #1a2540;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.app-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.05em;
+  flex-shrink: 0;
+}
+
+.app-header h1 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e2eaf5;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.header-divider {
+  width: 1px;
+  height: 18px;
+  background: #1e2d4a;
+  margin: 0 4px;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: #3d5a82;
+  white-space: nowrap;
+}
+
+.subtitle a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.subtitle a:hover {
+  color: #60a5fa;
+}
+
+.header-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ────────────────────────────────────────────
+   メインエリア
+──────────────────────────────────────────── */
+.app-main {
+  flex: 1;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 20px 40px;
+}
+
+/* ────────────────────────────────────────────
+   検索バー
+──────────────────────────────────────────── */
+.search-bar {
+  background: #0d1120;
+  border: 1px solid #1a2540;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.search-input-wrap {
+  display: flex;
+  gap: 8px;
+}
+
+.search-input {
+  flex: 1;
+  max-width: 260px;
+  padding: 9px 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: #07090f;
+  border: 1px solid #1e2d4a;
+  border-radius: 7px;
+  outline: none;
+  color: #e2eaf5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.search-input::placeholder {
+  color: #2d4060;
+}
+
+.search-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.search-input.input-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input-error-msg {
+  color: #f87171;
+  font-size: 0.78rem;
+  margin: 6px 0 0;
+  letter-spacing: 0.01em;
+}
+
+.search-btn {
+  padding: 9px 22px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.search-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.search-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.search-btn:disabled {
+  background: #1e2d4a;
+  color: #3d5a82;
+  cursor: not-allowed;
+}
+
+.search-examples {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  font-size: 0.72rem;
+  color: #2d4060;
+}
+
+.example-btn {
+  background: transparent;
+  color: #3b82f6;
+  border: 1px solid #1e2d4a;
+  border-radius: 5px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.example-btn:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: #2563eb;
+  color: #60a5fa;
+}
+
+.example-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ────────────────────────────────────────────
+   銘柄タイトルバー
+──────────────────────────────────────────── */
+.stock-info {
+  background: #0d1120;
+  border: 1px solid #1a2540;
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stock-info h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #e2eaf5;
+  letter-spacing: 0.01em;
+}
+
+.stock-code {
+  color: #3b82f6;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.stock-sub {
+  margin: 3px 0 0;
+  font-size: 0.75rem;
+  color: #3d5a82;
+  letter-spacing: 0.02em;
+}
+
+.stock-meta-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.meta-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #07090f;
+  border: 1px solid #1a2540;
+  border-radius: 7px;
+  padding: 6px 14px;
+  min-width: 80px;
+}
+
+.meta-pill-label {
+  font-size: 0.62rem;
+  color: #3d5a82;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.meta-pill-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #e2eaf5;
+  font-family: 'Courier New', monospace;
+}
+
+/* ────────────────────────────────────────────
+   チャート外枠
+──────────────────────────────────────────── */
+.chart-outer {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.chart-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(7, 9, 15, 0.82);
+  border-radius: 10px;
+  z-index: 10;
+  color: #3d5a82;
+  font-size: 0.85rem;
+  backdrop-filter: blur(2px);
+}
+
+/* ────────────────────────────────────────────
+   フィルターコントロール
+──────────────────────────────────────────── */
+.filter-controls {
+  background: #0d1120;
+  border: 1px solid #1a2540;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #3d5a82;
+  letter-spacing: 0.02em;
+}
+
+.filter-select {
+  padding: 5px 10px;
+  border: 1px solid #1e2d4a;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  background: #07090f;
+  color: #c9d5e8;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.filter-select:focus {
+  border-color: #2563eb;
+}
+
+.filter-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.result-count {
+  font-size: 0.78rem;
+  color: #3d5a82;
+  letter-spacing: 0.02em;
+}
+
+.result-count strong {
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+.clear-filter-btn {
+  background: rgba(239, 68, 68, 0.08);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.clear-filter-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+/* ────────────────────────────────────────────
+   空売りテーブル
+──────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #1a2540;
+  background: #0d1120;
+}
+
+.short-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.short-table thead {
+  background: #0a0d16;
+  border-bottom: 1px solid #1a2540;
+}
+
+.short-table thead th {
+  padding: 11px 14px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
+  color: #3d5a82;
+  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.short-table thead th.sortable {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.short-table thead th.sortable:hover {
+  color: #60a5fa;
+}
+
+.sort-icon {
+  margin-left: 4px;
+  font-size: 0.68rem;
+  opacity: 0.3;
+}
+
+.sort-icon.active {
+  opacity: 1;
+  color: #3b82f6;
+}
+
+.short-table tbody tr {
+  border-bottom: 1px solid #0f1623;
+  transition: background 0.1s;
+}
+
+.short-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.short-table tbody tr:hover {
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.short-table td {
+  padding: 10px 14px;
+  color: #a8bcd8;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.cell-date {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: #3d5a82;
+  letter-spacing: 0.03em;
+}
+
+.cell-institution {
+  font-weight: 600;
+  color: #c9d5e8;
+  letter-spacing: 0.01em;
+}
+
+.cell-ratio {
+  font-weight: 700;
+  text-align: right;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.02em;
+}
+
+.cell-change,
+.cell-qchange {
+  text-align: right;
+  font-weight: 500;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+}
+
+.cell-quantity {
+  text-align: right;
+  font-family: 'Courier New', monospace;
+  color: #7a96b8;
+  font-size: 0.8rem;
+}
+
+.cell-remark {
+  font-size: 0.73rem;
+  color: #2d4060;
+  white-space: normal;
+  max-width: 200px;
+  line-height: 1.4;
+}
+
+.ratio-high { color: #f87171; }
+.ratio-mid  { color: #fbbf24; }
+.ratio-low  { color: #34d399; }
+.change-pos { color: #f87171; }
+.change-neg { color: #34d399; }
+
+/* ────────────────────────────────────────────
+   ステート表示
+──────────────────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 56px;
+  color: #3d5a82;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #1e2d4a;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-box {
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  border-left: 3px solid #ef4444;
+  border-radius: 8px;
+  color: #f87171;
+  padding: 11px 16px;
+  margin-bottom: 14px;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.warning-box {
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.18);
+  border-left: 3px solid #f59e0b;
+  border-radius: 8px;
+  color: #fbbf24;
+  padding: 10px 16px;
+  margin-top: 12px;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+}
+
+.no-data {
+  text-align: center;
+  color: #2d4060;
+  padding: 56px;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+/* ────────────────────────────────────────────
+   レスポンシブ
+──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 16px;
+    height: 48px;
+  }
+
+  .header-badge { display: none; }
+  .subtitle     { display: none; }
+  .header-divider { display: none; }
+
+  .app-main {
+    padding: 14px 12px 32px;
+  }
+
+  .app-header h1 { font-size: 0.875rem; }
+  .search-input  { max-width: 100%; }
+  .stock-info h2 { font-size: 1.05rem; }
+  .meta-pill     { display: none; }
+}

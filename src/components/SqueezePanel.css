@@ -1,0 +1,375 @@
+/* ── ラッパー ── */
+.sq-wrap {
+  background: #0d1120;
+  border: 1px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  transition: border-color 0.3s;
+}
+
+/* ── ヘッダー ── */
+.sq-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #0a0d16;
+  border-bottom: 1px solid #111d33;
+}
+
+.sq-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sq-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #7a96b8;
+}
+
+.sq-phase-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.sq-header-hint {
+  font-size: 0.65rem;
+  color: #1e2d4a;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ── ボディ ── */
+.sq-body {
+  display: flex;
+  gap: 0;
+}
+
+/* ── 左カラム: ゲージ + サブスコア ── */
+.sq-left {
+  flex: 0 0 260px;
+  padding: 18px 20px;
+  border-right: 1px solid #111d33;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ── スコアゲージ ── */
+.sq-gauge-wrap {
+  text-align: center;
+}
+
+.sq-gauge-score {
+  font-size: 3.2rem;
+  font-weight: 800;
+  font-family: 'Courier New', monospace;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transition: color 0.3s;
+}
+
+.sq-gauge-denom {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2d4060;
+  margin-left: 2px;
+  letter-spacing: 0;
+}
+
+.sq-gauge-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 4px 0 12px;
+  transition: color 0.3s;
+}
+
+.sq-gauge-bar-wrap {
+  position: relative;
+  height: 6px;
+  background: #0a0d16;
+  border-radius: 99px;
+  overflow: visible;
+  border: 1px solid #1a2540;
+}
+
+.sq-gauge-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+}
+
+.sq-gauge-tick {
+  position: absolute;
+  top: -3px;
+  width: 1px;
+  height: 12px;
+  background: #1a2540;
+  transform: translateX(-50%);
+}
+
+.sq-gauge-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 0.58rem;
+  color: #1e2d4a;
+  letter-spacing: 0.02em;
+}
+
+/* ── サブスコアバー ── */
+.sq-sub-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sq-sub-item {
+  cursor: default;
+}
+
+.sq-sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.sq-sub-label {
+  font-size: 0.7rem;
+  color: #3d5a82;
+  letter-spacing: 0.02em;
+}
+
+.sq-sub-val {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  transition: color 0.3s;
+}
+
+.sq-sub-track {
+  height: 3px;
+  background: #0a0d16;
+  border-radius: 99px;
+  overflow: hidden;
+  border: 1px solid #1a2540;
+}
+
+.sq-sub-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s ease, background 0.3s;
+}
+
+/* ── 右カラム: メトリクス詳細 ── */
+.sq-right {
+  flex: 1;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* ── メトリクスグリッド ── */
+.sq-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.sq-metric-pill {
+  background: #07090f;
+  border: 1px solid #1a2540;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: default;
+  transition: border-color 0.15s;
+}
+
+.sq-metric-pill:hover {
+  border-color: #2a3f60;
+}
+
+.sq-metric-label {
+  font-size: 0.6rem;
+  color: #2d4060;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sq-metric-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #c9d5e8;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  transition: color 0.3s;
+}
+
+.sq-metric-sub {
+  font-size: 0.6rem;
+  color: #2d4060;
+  margin-top: 3px;
+  letter-spacing: 0.02em;
+}
+
+/* ── 最大含み損機関 ── */
+.sq-worst-inst {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(248, 113, 113, 0.04);
+  border: 1px solid rgba(248, 113, 113, 0.12);
+  border-radius: 7px;
+  padding: 8px 12px;
+}
+
+.sq-worst-label {
+  font-size: 0.62rem;
+  color: #2d4060;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.sq-worst-name {
+  flex: 1;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #c9d5e8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.sq-worst-pnl {
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  flex-shrink: 0;
+}
+
+/* ── ピーク比解消率バー ── */
+.sq-drawdown {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sq-drawdown-label {
+  font-size: 0.62rem;
+  color: #2d4060;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sq-drawdown-bar-wrap {
+  flex: 1;
+  height: 4px;
+  background: #0a0d16;
+  border: 1px solid #1a2540;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.sq-drawdown-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1d4ed8, #34d399);
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+
+.sq-drawdown-val {
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #34d399;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* ── フェーズ説明 ── */
+.sq-phase-desc {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 18px;
+  border-top: 1px solid;
+  background: var(--phase-bg, rgba(122, 150, 184, 0.05));
+  flex-wrap: wrap;
+}
+
+.sq-phase-icon {
+  font-size: 0.6rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sq-phase-text {
+  font-size: 0.75rem;
+  color: #7a96b8;
+  line-height: 1.6;
+  flex: 1;
+  min-width: 200px;
+  letter-spacing: 0.01em;
+}
+
+.sq-disclaimer {
+  font-size: 0.62rem;
+  color: #1e2d4a;
+  line-height: 1.5;
+  width: 100%;
+  letter-spacing: 0.01em;
+}
+
+/* ── レスポンシブ ── */
+@media (max-width: 900px) {
+  .sq-body {
+    flex-direction: column;
+  }
+
+  .sq-left {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid #111d33;
+    padding: 16px;
+  }
+
+  .sq-gauge-score { font-size: 2.4rem; }
+
+  .sq-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sq-header-hint { display: none; }
+}
+
+@media (max-width: 560px) {
+  .sq-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
