@@ -1,7 +1,15 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "functions": {
+    "api/**/*.js": {
+      "memory": 256,
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    { "source": "/api/short-selling/:code", "destination": "/api/short-selling/[code]" },
+    { "source": "/api/chart/:code",         "destination": "/api/chart/[code]"         },
+    { "source": "/((?!api/).*)",            "destination": "/index.html"               }
   ]
 }
