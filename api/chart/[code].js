@@ -4,7 +4,11 @@ const yf = new YahooFinance({ suppressNotices: ['ripHistorical'] });
 
 async function fetchOHLCV(stockCode, range) {
   const ticker = `${stockCode}.T`;
-  const rows = await yf.historical(ticker, { period1: rangeToDate(range), period2: new Date(), interval: '1d' });
+  const rows = await yf.historical(
+    ticker,
+    { period1: rangeToDate(range), period2: new Date(), interval: '1d' },
+    { validateResult: false },
+  );
 
   return rows
     .filter((r) => r.open && r.high && r.low && r.close)
